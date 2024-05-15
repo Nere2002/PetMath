@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tiendaFragment"
+        android:background="@android:color/transparent"
+        android:icon="@drawable/tiendaicono"
+        android:title="@string/tienda" />
+
+    <item
+        android:id="@+id/inicioFragment"
+        android:background="@android:color/transparent"
+        android:icon="@drawable/casaicono"
+        android:title="@string/inicio" />
+    <item
+        android:id="@+id/matesFragment"
+        android:background="@android:color/transparent"
+        android:icon="@drawable/matesicono"
+        android:title="@string/mates" />
+
+</menu>

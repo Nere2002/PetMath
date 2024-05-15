@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondocasa2"
+        tools:context=".fragments.InicioFragment">
+
+        <!-- Contenedor de la caja  del nivel -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/boxContainer"
+            android:layout_width="490dp"
+            android:layout_height="71dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Elementos dentro de la caja -->
+
+            <TextView
+                android:id="@+id/textViewNVL"
+                android:layout_width="65dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="36dp"
+                android:text="@string/nvl"
+                android:textAlignment="viewEnd"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.571"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/numnivel"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="number"
+                android:text="@string/_02"
+                android:textAlignment="viewEnd"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/barranivel"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
+
+            <ProgressBar
+                android:id="@+id/barranivel"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="263dp"
+                android:layout_height="37dp"
+                android:max="100"
+                android:progress="50"
+                android:progressDrawable="@drawable/custom_progress_bar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.774"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--  contenido de la caja de abajo -->
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="275dp"
+            android:layout_height="259dp"
+            android:contentDescription="@string/todol"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/boxContainer"
+            app:layout_constraintVertical_bias="0.401"
+            app:srcCompat="@mipmap/gato_foreground" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/boxContainerabajo"
+            android:layout_width="426dp"
+            android:layout_height="211dp"
+            android:layout_marginTop="55dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.297"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.976">
+
+
+            <Button
+                android:id="@+id/botonbebida"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/AzulMarino"
+                android:contentDescription="@string/todoi"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.148"
+                app:layout_constraintStart_toEndOf="@+id/numbebida"
+                app:layout_constraintTop_toBottomOf="@+id/botonsalut"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/botoncomida"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/AzulMarino"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/numcomida"
+                app:layout_constraintTop_toBottomOf="@+id/botonbebida" />
+
+            <ProgressBar
+                android:id="@+id/barracomida"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="220dp"
+                android:layout_height="28dp"
+                android:max="100"
+                android:progress="10"
+                android:progressDrawable="@drawable/custom_progress_bar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.205"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.781" />
+
+            <TextView
+                android:id="@+id/numcomida"
+                android:layout_width="46dp"
+                android:layout_height="28dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="number"
+                android:text="@string/_0"
+                android:textAlignment="viewEnd"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/barracomida"
+                app:layout_constraintTop_toBottomOf="@+id/numbebida"
+                app:layout_constraintVertical_bias="0.465"
+                tools:ignore="LabelFor,TouchTargetSizeCheck,VisualLintBounds" />
+
+            <ProgressBar
+                android:id="@+id/barrabebida"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="220dp"
+                android:layout_height="28dp"
+                android:layout_marginBottom="28dp"
+                android:max="100"
+                android:progress="10"
+                android:progressDrawable="@drawable/custom_progress_bar"
+                app:layout_constraintBottom_toTopOf="@+id/barracomida"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.205"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/numbebida"
+                android:layout_width="46dp"
+                android:layout_height="28dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="number"
+                android:text="@string/_04"
+                android:textAlignment="viewEnd"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toEndOf="@+id/barrabebida"
+                app:layout_constraintTop_toBottomOf="@+id/numsalut"
+                app:layout_constraintVertical_bias="0.185"
+                tools:ignore="LabelFor" />
+
+            <ProgressBar
+                android:id="@+id/barrasalut"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="220dp"
+                android:layout_height="28dp"
+                android:layout_marginBottom="8dp"
+                android:max="100"
+                android:progress="10"
+                android:progressDrawable="@drawable/custom_progress_bar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.206"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.09" />
+
+            <TextView
+                android:id="@+id/numsalut"
+                android:layout_width="46dp"
+                android:layout_height="28dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="number"
+                android:text="@string/cero"
+                android:textAlignment="viewEnd"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/barrasalut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.073"
+                tools:ignore="LabelFor,TouchTargetSizeCheck,VisualLintBounds" />
+
+            <Button
+                android:id="@+id/botonsalut"
+
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/AzulMarino"
+                android:text="+"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.148"
+                app:layout_constraintStart_toEndOf="@+id/numsalut"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="66dp"
+                android:layout_height="47dp"
+                app:layout_constraintEnd_toStartOf="@+id/barrasalut"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/jugetegato" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="65dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/barrabebida"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                app:srcCompat="@drawable/bebidagato" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="64dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/barracomida"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                app:srcCompat="@drawable/comidagato" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

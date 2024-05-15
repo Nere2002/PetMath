@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176928181856",
+    "project_id": "petmath-bf60b",
+    "storage_bucket": "petmath-bf60b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176928181856:android:c5c1a0278e8f2eee48bd05",
+        "android_client_info": {
+          "package_name": "com.skye.petmath"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAifqvKFoQsi88PT4fJMwSQA6nNErd00sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

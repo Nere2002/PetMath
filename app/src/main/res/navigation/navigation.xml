@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.skye.petmath.fragments.InicioFragment"
+        android:label="CASA"
+        tools:layout="@layout/fragment_inicio" />
+    <fragment
+        android:id="@+id/matesFragment"
+        android:name="com.skye.petmath.fragments.MatesFragment"
+        android:label="MATES"
+        tools:layout="@layout/fragment_mates" />
+    <fragment
+        android:id="@+id/tiendaFragment"
+        android:name="com.skye.petmath.fragments.TiendaFragment"
+        android:label="TIENDA"
+        tools:layout="@layout/fragment_tienda" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.skye.petmath.auth.loginActivity"
+        android:label="loginActivity" />
+</navigation>

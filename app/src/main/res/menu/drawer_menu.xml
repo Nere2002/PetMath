@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/group_user_actions" android:checkableBehavior="single">
+
+    </group>
+    <item
+        android:id="@+id/loginActivity"
+        android:title="Cerrar Sesión" />
+</menu>
