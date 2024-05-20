@@ -59,7 +59,7 @@ class InicioFragment : Fragment() {
                     when (numeroNivel) {
                         in 0..25 -> imagengato.setImageResource(R.mipmap.gato_foreground)
                         in 26..59 -> imagengato.setImageResource(R.mipmap.gatoevo_foreground)
-                        in 60..100 -> imagengato.setImageResource(R.mipmap.gato3_foreground)
+                        in 60..100 -> imagengato.setImageResource(R.mipmap.gato33_foreground)
                         else -> imagengato.setImageResource(R.mipmap.gato_foreground) // Imagen predeterminada
                     }
 
