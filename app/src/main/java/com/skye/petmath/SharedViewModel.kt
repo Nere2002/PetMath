@@ -139,7 +139,7 @@ class SharedViewModel : ViewModel() {
         }
     }
 
-    fun actualizarBarraNivel(nuevoValor: Int) {
+    fun actualizarBarraNivel1(nuevoValor: Int) {
         // Obtener el valor actual de barraniv
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         if (uid != null) {
@@ -162,17 +162,39 @@ class SharedViewModel : ViewModel() {
         }
     }
 
+    fun actualizarBarraNivel(nuevoValor: Int) {
+        // Obtener el valor actual de barraniv
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        if (uid != null) {
+            val docRef = FirebaseFirestore.getInstance().collection("infouser").document(uid)
+            FirebaseFirestore.getInstance().runTransaction { transaction ->
+                val snapshot = transaction.get(docRef)
+                val valorActualString = snapshot.getString("barraniv") ?: "0" // Obtener el valor como cadena, usar "0" si es nulo
+                val valorActual = valorActualString.toInt() // Convertir la cadena a un entero
+                val nuevoValorTotal = valorActual + nuevoValor
+
+                // Si la suma es menor que 100, actualizar barraniv con el nuevo valor
+                if (nuevoValorTotal < 100) {
+                    transaction.update(docRef, "barraniv", nuevoValorTotal.toString())
+                } else {
+                    // Si la suma es mayor o igual a 100, actualizar barraniv a 0 y aumentar el nivel
+                    val excedente = nuevoValorTotal - 100
+                    transaction.update(docRef, "barraniv", "0")
+                    val nuevoNivelString = snapshot.getString("niv") ?: "0" // Obtener el valor de "niv" como cadena
+                    val nuevoNivel = nuevoNivelString.toInt() + 1 // Convertir la cadena a un entero y aumentar en 1
+                    transaction.update(docRef, "niv", nuevoNivel.toString())
+                }
+            }.addOnSuccessListener {
+                // Éxito al actualizar la transacción
+                cargarDatosUsuario()
+            }.addOnFailureListener { e ->
+                // Manejar errores
+                Log.e("ERROR", "Error al actualizar barra de nivel: ${e.message}", e)
+            }
+        }
+    }
 
 
-
-
-
-
-//    fun actualizarNivel(nuevoValor: Int) {
-//        actualizarDatoUsuario("niv", nuevoValor.toString())
-//        actualizarDatoUsuario("barraniv", nuevoValor.toString())
-//        cargarDatosUsuario()
-//    }
 
     // En tu ViewModel
     fun actualizarSalud(nuevoValor: Int, nuevoValorBarra: Int) {

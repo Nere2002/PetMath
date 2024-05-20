@@ -1,6 +1,7 @@
 package com.skye.petmath.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,9 @@ import com.skye.petmath.tienda.TiendaVewModel
 import kotlin.math.pow
 import kotlin.math.round
 import kotlin.random.Random
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
+
 
 
 class MatesFragment : Fragment() {
@@ -60,13 +64,45 @@ class MatesFragment : Fragment() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
+//        binding.btnStart.setOnClickListener {
+//            val operation = operations[binding.spinnerOperations.selectedItemPosition]
+//            mathProblems = generateMathProblems(operation, numberOfDigits)
+//            currentProblemIndex = 0
+//            showCurrentProblem()
+//            clearResults() // Limpia los resultados al iniciar una nueva serie de problemas
+//        }
         binding.btnStart.setOnClickListener {
-            val operation = operations[binding.spinnerOperations.selectedItemPosition]
-            mathProblems = generateMathProblems(operation, numberOfDigits)
-            currentProblemIndex = 0
-            showCurrentProblem()
-            clearResults() // Limpia los resultados al iniciar una nueva serie de problemas
+            val docRef = FirebaseFirestore.getInstance().collection("infouser").document(FirebaseAuth.getInstance().currentUser?.uid ?: "")
+            docRef.get()
+                .addOnSuccessListener { document ->
+                    val barracomida = document.getString("barracomida") ?: "0"
+                    val barrabebida = document.getString("barrabebida") ?: "0"
+                    val barrasalud = document.getString("barrasalut") ?: "0"
+
+                    if (barracomida == "0" || barrabebida == "0" || barrasalud == "0") {
+                        // Si alguna de las barras está en 0, mostrar un mensaje al usuario
+                        val message = when {
+                            barracomida == "0" -> "Sube la comida."
+                            barrabebida == "0" -> "Sube la bebida."
+                            barrasalud == "0" -> "Sube la salud."
+                            else -> "Algo salió mal."
+                        }
+                        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                    } else {
+                        // Si todas las barras son diferentes de 0, permitir al usuario jugar
+                        val operation = operations[binding.spinnerOperations.selectedItemPosition]
+                        mathProblems = generateMathProblems(operation, numberOfDigits)
+                        currentProblemIndex = 0
+                        showCurrentProblem()
+                        clearResults() // Limpia los resultados al iniciar una nueva serie de problemas
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.e("ERROR", "Error al obtener datos del usuario: ", exception)
+                }
         }
+
+
 
         binding.btnSubmitAnswer.setOnClickListener {
             val userAnswer = binding.etUserAnswer.text.toString()
